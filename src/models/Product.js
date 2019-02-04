@@ -1,5 +1,8 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
+const mongoosePaginate = require("mongoose-paginate");
 
+/* Esse é um jeito de se criar um schema/tabela
+no mongo */
 const ProductSchema = new mongoose.Schema({
   title: {
     type: String,
@@ -19,4 +22,6 @@ const ProductSchema = new mongoose.Schema({
   }
 });
 
-mongoose.model('Product', ProductSchema);
+ProductSchema.plugin(mongoosePaginate);
+
+mongoose.model("Product", ProductSchema);
